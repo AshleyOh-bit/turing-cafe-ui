@@ -36,14 +36,17 @@ class Form extends React.Component {
     render() {
         return (
             <form>
+                <h2>Make a Reservation</h2>
                 <input 
-                type="text" 
-                name="name" 
-                value={this.state.name} 
-                placeholder="Name" 
-                onChange={event => this.handleChange(event)}
+                    id="nameInput"
+                    type="text" 
+                    name="name" 
+                    value={this.state.name} 
+                    placeholder="Name" 
+                    onChange={event => this.handleChange(event)}
                 /> 
                 <input 
+                    id="dateInput"
                     type="text" 
                     name="date" 
                     value={this.state.date} 
@@ -51,6 +54,7 @@ class Form extends React.Component {
                     onChange={event => this.handleChange(event)}
                 />
                 <input 
+                    id="timeInput"
                     type="text" 
                     name="time" 
                     value={this.state.time} 
@@ -58,6 +62,7 @@ class Form extends React.Component {
                     onChange={event => this.handleChange(event)}
                 />
                 <input 
+                    id="numberInput"
                     type="text" 
                     name="number" 
                     value={this.state.number} 
