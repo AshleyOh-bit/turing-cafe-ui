@@ -4,6 +4,7 @@ import "./ReservationCard.css"
 
 const ReservationsRepo = props => {
     // const { date, id, name, number, time } = props
+    console.log(props.reservations)
     const resComps = props.reservations.map(reservation => {
         return (
             <ReservationCard 

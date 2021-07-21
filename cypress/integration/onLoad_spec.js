@@ -1,12 +1,24 @@
 describe("test", () => {
     beforeEach(() => {
+        cy.intercept(
+            {
+                method: "GET",
+                url: "http://localhost:3001/api/v1/reservations"
+            },
+            {
+                statusCode: 201,
+                body: [{
+                        date: "12/30",
+                        id: 10,
+                        name: "Tilde",
+                        number: 55,
+                        time: "9:00"
+                }]
+            })
         cy.visit("http://localhost:3000/")
     });
 
-    //stub network request here!
-
     it("should be able to visit the page and render title", () => {
-        cy.visit("http://localhost:3000/")
         cy.get(".app-title")
             .contains("Turing Cafe Reservations")
     })
@@ -28,9 +40,9 @@ describe("test", () => {
             .contains("Make Reservation")
     })
 
-    it("should display 9 reservation cards on load", () => {
+    it("should display 1 reservation card on load", () => {
         cy.get(".card")
-            .should("have.length", 9)
+            .should("have.length", 1)
     })
 
     //write tests to check each card for required attributes?
