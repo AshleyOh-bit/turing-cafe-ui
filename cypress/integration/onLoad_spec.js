@@ -3,6 +3,8 @@ describe("test", () => {
         cy.visit("http://localhost:3000/")
     });
 
+    //stub network request here!
+
     it("should be able to visit the page and render title", () => {
         cy.visit("http://localhost:3000/")
         cy.get(".app-title")
@@ -24,11 +26,12 @@ describe("test", () => {
             .should("have.attr", "placeholder", "Number")
         cy.get("button")
             .contains("Make Reservation")
-            .click()
     })
 
     it("should display 9 reservation cards on load", () => {
         cy.get(".card")
             .should("have.length", 9)
     })
+
+    //write tests to check each card for required attributes?
 });
