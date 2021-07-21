@@ -45,5 +45,11 @@ describe("test", () => {
             .should("have.length", 1)
     })
 
-    //write tests to check each card for required attributes?
+    it("Card should contain user information", () => {
+        cy.get(".card")
+            .get("h2").contains("Tilde")
+            .get("h3").contains("12/30")
+            .get("h4").contains("9:00")
+            .get("h4").contains("55")
+    })
 });
