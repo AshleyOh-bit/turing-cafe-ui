@@ -45,7 +45,7 @@ describe("test", () => {
             .should("have.length", 1)
     })
 
-    it("Card should contain user information", () => {
+    it("should show cards that contain user information", () => {
         cy.get(".card")
             .get("h2").contains("Tilde")
             .get("h3").contains("12/30")
