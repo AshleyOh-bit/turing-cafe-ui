@@ -12,6 +12,27 @@ class Form extends React.Component {
         }
     }
 
+    handleChange = event => {
+        this.setState({[event.target.name]: event.target.value})
+    }
+
+    clearInputs = () => {
+        this.setState({
+            name: "",
+            date: "",
+            time: "",
+            number: "",
+            id: 0
+        })
+    }
+
+    submitReservation = event => {
+        event.preventDefault()
+        this.setState({id: Date.now()})
+        this.props.addReservation(this.state)
+        this.clearInputs()
+    }
+
     render() {
         return (
             <form>
