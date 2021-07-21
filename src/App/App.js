@@ -10,6 +10,12 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    fetch("http://localhost:3001/api/v1/reservations")
+    .then(response => response.json())
+    .then(data => this.setState({reservations: data}))
+    .catch(err => this.setState({error: err.message}))
+  }
 
   render() {
     return (
