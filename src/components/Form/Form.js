@@ -26,9 +26,9 @@ class Form extends React.Component {
         })
     }
 
-    submitReservation = event => {
+    submitReservation = async event => {
         event.preventDefault()
-        this.setState({id: Date.now()})
+        await this.setState({id: Date.now()})
         this.props.addReservation(this.state)
         this.clearInputs()
     }
@@ -64,7 +64,7 @@ class Form extends React.Component {
                     placeholder="Number" 
                     onChange={event => this.handleChange(event)}
                 />
-                <button type="submit">Make Reservation!</button>
+                <button type="submit" onClick={event => this.submitReservation(event)}>Make Reservation!</button>
             </form>
 
 
