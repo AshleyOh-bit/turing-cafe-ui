@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import ReservationsRepo from "../ReservationsRepo/ReservationsRepo"
 
 class App extends Component {
   constructor() {
@@ -25,7 +26,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          
+          <ReservationsRepo reservations={this.state.reservations}/>
         </div>
       </div>
     )
