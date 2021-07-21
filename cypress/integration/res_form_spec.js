@@ -1,5 +1,20 @@
-describe("test", () => {
+describe("Form input validation tests", () => {
     beforeEach(() => {
+        cy.intercept(
+            {
+                method: "GET",
+                url: "http://localhost:3001/api/v1/reservations"
+            },
+            {
+                statusCode: 201,
+                body: [{
+                        date: "12/30",
+                        id: 10,
+                        name: "Tilde",
+                        number: 55,
+                        time: "9:00"
+                }]
+            })
         cy.visit("http://localhost:3000/")
     });
 
