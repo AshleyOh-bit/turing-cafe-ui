@@ -24,5 +24,11 @@ describe("test", () => {
             .should("have.attr", "placeholder", "Number")
         cy.get("button")
             .contains("Make Reservation")
+            .click()
+    })
+
+    it("should display 9 reservation cards on load", () => {
+        cy.get(".card")
+            .should("have.length", 9)
     })
 });
