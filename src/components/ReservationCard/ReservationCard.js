@@ -4,7 +4,7 @@ const ReservationCard = props => {
     const { date, id, name, number, time } = props
 
     return (
-        <div>
+        <div key={id}>
             <h2>{name}</h2>
             <h3>{date}</h3>
             <h4>{time}</h4>
