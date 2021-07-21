@@ -1,5 +1,6 @@
 import React from "react"
 import ReservationCard from "../ReservationCard/ReservationCard"
+import "./ReservationCard.css"
 
 const ReservationsRepo = props => {
     // const { date, id, name, number, time } = props
