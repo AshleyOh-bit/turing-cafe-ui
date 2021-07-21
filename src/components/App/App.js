@@ -14,14 +14,30 @@ class App extends Component {
 
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/reservations")
-    .then(response => response.json())
-    .then(data => this.setState({reservations: data}))
-    .catch(err => this.setState({error: err.message}))
+      .then(response => response.json())
+      .then(data => this.setState({reservations: data}))
+      .catch(err => this.setState({error: err.message}))
   }
 
-  addReservation = freshReserv => [
+  addReservation = freshReserv => {
     this.setState({reservations: [...this.state.reservations, freshReserv]})
-  ]
+    fetch("http://localhost:3001/api/v1/reservations", {
+      method: "POST",
+      body: JSON.stringify(freshReserv),
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.json())
+    .catch(err =>  this.setState({error: err.message}))
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.state.reservations !== prevProps.reservations) {
+      fetch("http://localhost:3001/api/v1/reservations")
+        .then(response => response.json())
+        .then(data => this.setState({reservations: data}))
+        .catch(err => this.setState({error: err.message}))
+    }
+  }
 
   render() {
     return (
